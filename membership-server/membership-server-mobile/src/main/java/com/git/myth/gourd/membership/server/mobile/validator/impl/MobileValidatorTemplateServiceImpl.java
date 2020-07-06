@@ -8,13 +8,16 @@ import javax.annotation.PostConstruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Conditional;
 import org.springframework.stereotype.Component;
 
 import com.git.myth.gourd.membership.server.mobile.validator.MobileValidatorTemplate;
 import com.git.myth.gourd.membership.server.mobile.validator.MobileValidatorTemplateService;
 import com.git.myth.gourd.membership.server.mobile.validator.configuration.MobileValidatorConfiguration;
+import com.git.myth.gourd.membership.server.mobile.innotation.EnableMobileCondition;
 
 @Component
+@Conditional(EnableMobileCondition.class)
 public class MobileValidatorTemplateServiceImpl implements MobileValidatorTemplateService {
 
 	private static final Logger LOG = LoggerFactory.getLogger(MobileValidatorTemplateServiceImpl.class);

@@ -1,15 +1,18 @@
 package com.git.myth.gourd.membership.server.mobile.validator.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Conditional;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
+import com.git.myth.gourd.membership.server.mobile.innotation.EnableMobileCondition;
 import com.git.myth.gourd.membership.server.mobile.sender.MobileSender;
 import com.git.myth.gourd.membership.server.mobile.validator.MobileValidatorCodeGenerator;
 import com.git.myth.gourd.membership.server.mobile.validator.MobileValidatorService;
 import com.git.myth.gourd.membership.server.mobile.validator.persistance.MobileValidatorPersistance;;
 
 @Component
+@Conditional(EnableMobileCondition.class)
 public class MobileValidatorServiceImpl implements MobileValidatorService {
 
 	@Autowired

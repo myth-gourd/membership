@@ -3,12 +3,14 @@ package com.git.myth.gourd.membership.server.mobile.validator.controller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Conditional;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.git.myth.gourd.membership.server.mobile.innotation.EnableMobileCondition;
 import com.git.myth.gourd.membership.server.mobile.validator.MobileValidatorService;
 import com.git.myth.gourd.membership.server.mobile.validator.MobileValidatorTemplateService;
 import com.git.myth.gourd.membership.server.mobile.validator.dto.MobileSendValidationCodeRequest;
@@ -18,6 +20,7 @@ import com.git.myth.gourd.membership.server.util.Response;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
+@Conditional(EnableMobileCondition.class)
 @Api(value = "Mobile Validator Api")
 @RestController
 @RequestMapping(value = "/memebership/mobile/validator/code/")
